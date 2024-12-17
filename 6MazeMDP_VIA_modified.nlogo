@@ -509,7 +509,7 @@ to launch-test
         if [class] of patch-here = "wind"[
           if random-float (1 - volcano-probability) < wind-glide-probability[
             show "Gliding on wind"
-            setxy ([pxcor] of patch-here - 1) [pycor] of patch-here
+            setxy ([pxcor] of patch-here + 1) [pycor] of patch-here
           ]
         ]
 
@@ -693,8 +693,8 @@ SLIDER
 stone-number
 stone-number
 0
-5
-5.0
+10
+10.0
 1
 1
 NIL
@@ -1117,8 +1117,8 @@ SLIDER
 wind-number
 wind-number
 0
-5
-0.0
+10
+10.0
 1
 1
 NIL
@@ -1148,7 +1148,7 @@ frozen-number
 frozen-number
 0
 7
-5.0
+0.0
 1
 1
 NIL
@@ -1178,7 +1178,7 @@ wind-glide-probability
 wind-glide-probability
 0
 1
-0.6
+1.0
 0.01
 1
 NIL
