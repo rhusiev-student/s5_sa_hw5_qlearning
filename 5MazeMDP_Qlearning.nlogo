@@ -430,7 +430,7 @@ to Q-learning
       let maxQ max Qlist-reduced
       let pos position maxQ Qlist
       let next-patch one-of neighbors4
-      
+
       if pos = 0 [
         set next-patch 90
       ]
@@ -504,7 +504,7 @@ volcano-number
 volcano-number
 0
 10
-3.0
+2.0
 1
 1
 NIL
@@ -519,7 +519,7 @@ stone-number
 stone-number
 0
 5
-1.0
+0.0
 1
 1
 NIL
@@ -602,7 +602,7 @@ number-iterations
 number-iterations
 0
 100
-10.0
+20.0
 1
 1
 NIL
@@ -759,7 +759,7 @@ wait-value
 wait-value
 0
 1
-0.01
+0.0
 0.01
 1
 NIL
@@ -774,7 +774,7 @@ exploration-%
 exploration-%
 0
 100
-5.0
+80.0
 1
 1
 NIL
