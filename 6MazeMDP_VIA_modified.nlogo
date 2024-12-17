@@ -132,11 +132,13 @@ to setup
     ]
   ]
 
-  ask n-of frozen-number patches with [pcolor = white and count neighbors4 with [pcolor = white] = 4][
+  ask n-of frozen-number patches with [pcolor = white and count neighbors with [pcolor = white] = 8][
     set class "ice-center"
     set pcolor blue
-    ask neighbors4 [
+    set reward 0
+    ask neighbors [
       set pcolor blue
+      set reward 0
     ]
 
     sprout 1 [
@@ -485,8 +487,8 @@ to launch-test
 
             let slip-patch nobody
             ask patch-here[
-              let center-patch one-of patches in-radius 1 with [class = "ice-center"]
-              let ice-patches other patches with [pcolor = blue and distance center-patch = 1]
+              let center-patch one-of patches in-radius (sqrt 2) with [class = "ice-center"]
+              let ice-patches other patches with [pcolor = blue and distance center-patch = sqrt 2]
               set slip-patch one-of ice-patches
             ]
 
@@ -549,8 +551,8 @@ to-report compute-patch-value [current-patch target-patch volcano-probability] ;
   if [pcolor] of current-patch = blue and [pcolor] of target-patch = blue[
     let normal-value steady-ice-probability * ([value] of target-patch + gamma * [reward] of target-patch)
 
-    let center-patch one-of patches in-radius 1 with [class = "ice-center"]
-    let ice-patches other patches with [pcolor = blue and distance center-patch = 1]
+    let center-patch one-of patches in-radius (sqrt 2) with [class = "ice-center"]
+    let ice-patches patches with [pcolor = blue and distance center-patch = sqrt 2]
 
     let value-sum 0
 
@@ -677,7 +679,7 @@ volcano-number
 volcano-number
 0
 10
-10.0
+0.0
 1
 1
 NIL
@@ -797,7 +799,7 @@ gamma
 gamma
 0
 1
-0.7
+0.53
 0.01
 1
 NIL
@@ -1101,7 +1103,7 @@ teleports-number
 teleports-number
 0
 16
-16.0
+0.0
 2
 1
 NIL
@@ -1116,7 +1118,7 @@ wind-number
 wind-number
 0
 5
-5.0
+0.0
 1
 1
 NIL
@@ -1131,7 +1133,7 @@ barrels-number
 barrels-number
 0
 10
-10.0
+0.0
 1
 1
 NIL
@@ -1146,7 +1148,7 @@ frozen-number
 frozen-number
 0
 7
-7.0
+5.0
 1
 1
 NIL
@@ -1191,7 +1193,7 @@ steady-ice-probability
 steady-ice-probability
 0
 1
-0.5
+0.88
 0.01
 1
 NIL
